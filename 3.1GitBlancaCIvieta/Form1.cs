@@ -26,17 +26,12 @@ namespace _3._1GitBlancaCIvieta
         {
             //Blanca Felisa Civieta Bermejo 23/24
             string textoTelegrama;
-            char tipoTelegrama = ' ';
             int numPalabras = 0;
             double coste;
 
             //Leo el telegrama  
             textoTelegrama = txtTelegrama.Text;
-            // telegrama urgente? 
-            if (cbUrgente.Checked)
-                tipoTelegrama = 'u';
-            else
-                tipoTelegrama = 'o';
+ 
             //Obtengo el número de palabras que forma el telegrama 
             numPalabras = 0;
             for (int i = 0; i < textoTelegrama.Length; i++) 
@@ -50,14 +45,14 @@ namespace _3._1GitBlancaCIvieta
             if (textoTelegrama[longCadena] != '.' || textoTelegrama[longCadena] != ' ')
                 numPalabras++;
             //Si el telegrama es ordinario 
-            if (tipoTelegrama == 'o')
+            if (rbOrdinario.Checked)
                 if (numPalabras <= 10)
                     coste = 2.5;
                 else
                     coste = 0.5 + (0.5 *( numPalabras -10));
             else
             //Si el telegrama es urgente 
-            if (tipoTelegrama == 'u')
+            if (rbUrgente.Checked)
                 if (numPalabras <= 10)
                     coste = 5;
                 else
